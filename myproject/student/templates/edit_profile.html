@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>my profile</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="course">Courses:</label>
+        <input type="text" id="course" name="course"> <br>
+
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration"> <br>
+
+        <button type="submit">Update profile</button>
+    </form>
+</body>
+</html>
