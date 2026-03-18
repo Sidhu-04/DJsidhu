@@ -1,6 +1,42 @@
 {% extends "base.html" %} 
-{% block cc %}
-    
-    <h2 style="background-color: aqua;">welcome home</h2>
 
-    {% endblock %}
+{% block title %}Home | Sidhu CMS{% endblock %}
+
+{% block cc %}
+<div class="row align-items-center py-5">
+    <div class="col-lg-6 mb-4 mb-lg-0">
+        <h1 class="display-4 fw-bold mb-3">Manage Your Students <span class="text-primary">Effortlessly</span></h1>
+        <p class="lead text-muted mb-4">A professional management system designed for speed, clarity, and ease of use. Register, track, and update student records in real-time.</p>
+        <div class="d-flex gap-3">
+            <a href="{% url 'student-list' %}" class="btn btn-primary btn-lg px-4 shadow">View Directory</a>
+            <a href="{% url 'student-add' %}" class="btn btn-outline-secondary btn-lg px-4">Register New</a>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card p-4 border-0 shadow-sm h-100">
+                    <div class="mb-3">
+                        <span class="p-3 bg-primary bg-opacity-10 text-primary rounded-3">
+                            <i class="bi bi-people"></i>
+                        </span>
+                    </div>
+                    <h5 class="fw-bold">Student Hub</h5>
+                    <p class="small text-muted mb-0">Centralized database for all student information and status tracking.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4 border-0 shadow-sm h-100">
+                    <div class="mb-3">
+                        <span class="p-3 bg-accent bg-opacity-10 text-accent rounded-3">
+                            <i class="bi bi-speedometer2"></i>
+                        </span>
+                    </div>
+                    <h5 class="fw-bold">Fast Performance</h5>
+                    <p class="small text-muted mb-0">Built on a solid Django backend for instantaneous data updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
