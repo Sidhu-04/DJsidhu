@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Edit Student</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">save changes</button>
+{% extends "base.html" %}
 
+{% block title %}Edit Student | Sidhu CMS{% endblock %}
 
-    </form>
-</body>
-</html>
+{% block cc %}
+<div class="row justify-content-center py-4">
+    <div class="col-lg-7">
+        <div class="mb-4">
+            <a href="{% url 'student-list' %}" class="text-muted text-decoration-none small">← Back to Directory</a>
+        </div>
+        <div class="card border-0 shadow-sm p-4 p-md-5">
+            <div class="mb-4">
+                <h3 class="fw-bold mb-1">Edit Student Details</h3>
+                <p class="text-muted small">Update the fields below and save your changes.</p>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-4">
+                    <label for="{{ field.id_for_label }}" class="form-label fw-semibold small text-uppercase text-muted">{{ field.label }}</label>
+                    <div class="input-group">
+                        {{ field }}
+                    </div>
+                    {% if field.errors %}
+                    <div class="text-danger small mt-1">{{ field.errors.0 }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="d-flex gap-3 mt-2">
+                    <button type="submit" class="btn btn-primary px-5 shadow">Save Changes</button>
+                    <a href="{% url 'student-list' %}" class="btn btn-outline-secondary px-4">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -61,6 +61,7 @@ h1, h2, h3, h4, .navbar-brand {
     font-size: 1.5rem;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -167,3 +168,42 @@ footer {
     padding: 2rem 0;
     color: var(--text-muted);
 }
+
+/* ── Django Form Field Auto-Styling ──────────────────── */
+/* Makes Django's auto-rendered inputs look Bootstrap-clean */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: #F8FAFC;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    background-color: #fff;
+}
+
+/* Badge pills in tables */
+.badge.bg-light {
+    font-weight: 500 !important;
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+}
+
